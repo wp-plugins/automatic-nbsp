@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Automatic NBSP add HTML non-breaking space (&nbsp) in your posts, custom post types and pages.
+Automatic NBSP adds HTML non-breaking space (&nbsp) in your posts, custom post types and pages.
 
 == Description ==
 
