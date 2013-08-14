@@ -1,5 +1,3 @@
-
-
 <?php
 add_action('admin_menu', 'dg_automatic_nbsp_menu');
 
@@ -60,5 +58,4 @@ function dg_automatic_nbsp_options() {
     </div>
 
     <?php
-}
-
+} ?>

@@ -3,7 +3,7 @@ Contributors: Damian Góra
 Tags: typography, posts, nbsp
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,9 @@ Non-Breaking Space is particularly important in Polish and Czech languages. In t
 
 
 == Changelog ==
+
+= 1.1 =
+Fix bug compatibility wordpress 3.6
 
 = 1.0 =
 First version.
