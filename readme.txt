@@ -1,31 +1,59 @@
 === Automatic NBSP ===
-Contributors: Damian Góra
-Tags: typography, posts, nbsp
+Contributors: webtroter
+Tags: typography, posts, nbsp, non-breaking space
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.1
+Tested up to: 4.1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Automatic NBSP adds HTML non-breaking space (&nbsp) in your posts, custom post types and pages.
+Adds a non-breaking space (&nbsp;) for selected words or phrases.
 
 == Description ==
 
-This plugin automatically adds HTML non-breaking space (&nbsp) in your posts, custom post types and pages. 
-In settings of plugin you can add words. Each added word will not be displayed on the end of line in text, but was moved to beginning of next line. 
-Automatic NBSP allows You to force the browser to not break the line between certain words or web page elements. E.g. 'Mr. Someone' should be 'Mr.&nbsp;Someone'. 
-Non-Breaking Space is particularly important in Polish and Czech languages. In these countries there is a typographic rule, which prohibits the display some conjunctions and prepositions on the end line of text. In other cases, help You control the aesthetics.
+This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.&nbsp;Someone'. Works with:
+
+*   posts
+*   titles
+*   pages
+*   custom post types
+*   comments
+*   widgets
+
+You can create your own list of words/phrases or import our proposals for words.
+ 
+A non-breaking space is particularly important in Polish and Czech languages. In these countries there is the typographic rule, which prohibits the display some conjunctions and prepositions on the end line of text. In other cases, help You control the aesthetics.
+
+If you have any ideas for how Automatic NBSP could be improved, you write to us.
 
 == Installation ==
 
-1. Install the plugin from within the Dashboard or upload the directory `widget-or-sidebar-per-shortcode` and all its contents to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Install the plugin from within the Dashboard or upload the directory `automatic-nbsp` and all its contents to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Go to Settings -> Automatic NBSP and set your preferences.
+4. Enjoy automatically added non-breaking spaces
 
 
 == Changelog ==
 
+= 1.2 =
+*   Title is now supported.
+*   Excerpt is now supported.
+*   Comment text is now supported.
+*   Widget text is now supported.
+*   Phrases is now allowed.
+*   Add case sensitive for words or phrases.
+*   Add list of conjunctions and other phrases for the Polish and English language.
+*   Fix mechanism for adding a &nbsp entitie.
+*   Polish translation
+
 = 1.1 =
-Fix bug compatibility wordpress 3.6
+*   Fix bug compatibility wordpress 3.6.
 
 = 1.0 =
-First version.
+*   First version.
+
+== Upgrade Notice ==
+
+= 1.2 =
+New mechanism for adding non-breaking space
