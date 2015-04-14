@@ -1,6 +1,6 @@
 === Automatic NBSP ===
 Contributors: webtroter
-Tags: typography, posts, nbsp, non-breaking space
+Tags: typography, posts, nbsp, non-breaking, line-break, poland
 Requires at least: 3.0
 Tested up to: 4.1.1
 Stable tag: 1.2
@@ -11,7 +11,7 @@ Adds a non-breaking space (&nbsp) for selected words or phrases.
 
 == Description ==
 
-This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.&nbsp;Someone'. Works with:
+This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.&nbspSomeone'. Works with:
 
 *   posts
 *   titles
