@@ -11,7 +11,7 @@ Adds a non-breaking space (&nbsp) for selected words or phrases.
 
 == Description ==
 
-This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.&nbspSomeone'. Works with:
+This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.`&nbsp;`Someone'. Works with:
 
 *   posts
 *   titles
