@@ -1,17 +1,25 @@
 === Automatic NBSP ===
-Contributors: webtroter
-Tags: typography, posts, nbsp, non-breaking, line-break, poland
+Contributors: damian-gora
+Tags: typography, nbsp, non-breaking space, line-break, polish, czech, french, punctuation marks
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 1.2
+Tested up to: 4.2.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a non-breaking space (&nbsp) for selected words or phrases.
+
+Automatically adds a non-breaking space (&nbsp) in the content.
 
 == Description ==
 
-This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.`&nbsp;`Someone'. Works with:
+**Support typographic rules in Polish and Czech**
+Moves conjunctions, prepositions, etc. to the new line. ( sierotki )
+
+**Support punctuation marks in French**
+Adds a non-breaking space `&nbsp;` before punctuation marks as `!` `?` `;` `%` `«` `»`
+
+**How it works?**
+The plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) after selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.`&nbsp;`Someone'. Works with:
 
 *   posts
 *   titles
@@ -19,10 +27,16 @@ This plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) for s
 *   custom post types
 *   comments
 *   widgets
+*   custom contents
 
-You can create your own list of words/phrases or import our proposals for words.
- 
-A non-breaking space is particularly important in Polish and Czech languages. In these countries there is the typographic rule, which prohibits the display some conjunctions and prepositions on the end line of text. In other cases, help You control the aesthetics.
+You can create your own list of words/phrases or import our proposals.
+
+
+**Custom contents**
+You can use the function `<?php auto_nbsp($content, $echo); ?>` to add `&nbsp;` to the custom content. Use this in your code.
+1. Param `$content` - (string) (required) Free text
+2. Param `$echo` - (bool) (optional) true (echo), false (return), Default: true 
+
 
 If you have any ideas for how Automatic NBSP could be improved, you write to us.
 
@@ -53,7 +67,9 @@ If you have any ideas for how Automatic NBSP could be improved, you write to us.
 = 1.0 =
 *   First version.
 
+
 == Upgrade Notice ==
 
-= 1.2 =
-New mechanism for adding non-breaking space
+= 1.3 =
+*   ADD New function `auto_nbsp($content, $echo)` allows to add nbsp to the custom content. Use this in your code.
+*   ADD `&nbsp;` before punctuation marks as `!` `?` `;` `%` `«` `»`

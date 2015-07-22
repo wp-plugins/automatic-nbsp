@@ -32,6 +32,7 @@ function dgwt_nbsp_register_settings() {
                 'id' => isset($option['id']) ? $option['id'] : null,
                 'desc' => !empty($option['desc']) ? $option['desc'] : '',
                 'name' => isset($option['name']) ? $option['name'] : null,
+                'info' => isset($option['info']) ? $option['info'] : null,        
                 'section' => $section,
                 'size' => isset($option['size']) ? $option['size'] : null,
                 'options' => isset($option['options']) ? $option['options'] : '',
@@ -65,7 +66,7 @@ function dgwt_nbsp_get_registered_settings() {
             'words' => array(
                 'id' => 'words',
                 'name' => __("Words or phrases: <br /> Each word or phrase on a new line", 'automatic-nbsp'),
-                'desc' => __("For each word or phrase will be added a non-breaking space - HTML entity", 'automatic-nbsp') . ' <code>&#38;nbsp</code>',
+                'desc' => __("Add <code>&#38;nbsp</code> after each word or phrase from the list.", 'automatic-nbsp'),
                 'type' => 'textarea',
                 'std' => ''
             ),
@@ -75,6 +76,13 @@ function dgwt_nbsp_get_registered_settings() {
                 'desc' => __("If enabled, you need to type variants of word manually. For example: 'and', 'AND', 'And' etc.", 'automatic-nbsp'),
                 'type' => 'checkbox',
                 'std' => '0'
+            ),
+            'before_punctuation' => array(
+                'id' => 'before_punctuation',
+                'name' => __("Punctuation marks", 'automatic-nbsp'),
+                'desc' => __("Add <code>&amp;nbsp;</code> before punctuation marks as", 'automatic-nbsp') . ' <code>!</code><code>?</code><code>:</code><code>;</code><code>%</code><code>«</code><code>»</code>',
+                'type' => 'checkbox',
+                'std' => '1'
             )
                 )
         ),
@@ -118,6 +126,12 @@ function dgwt_nbsp_get_registered_settings() {
                 'desc' => __("Add non-breaking spaces to widgets", 'automatic-nbsp'),
                 'type' => 'checkbox',
                 'std' => '0'
+            ),
+            'custom' => array(
+                'id' => 'custom',
+                'name' => __("Custom", 'automatic-nbsp'),
+                'desc' => __('Use <code>&lt;?php auto_nbsp($content); ?&gt;</code> to print the custom text with the automatic <code>&amp;nbsp;</code>. Use <code>&lt;?php auto_nbsp($content, false); ?&gt;</code> to only return.', 'automatic-nbsp'),
+                'type' => 'info',
             )
                 )
         )
@@ -200,6 +214,16 @@ function dgwt_nbsp_text_callback($args) {
     $size = ( isset($args['size']) && !is_null($args['size']) ) ? $args['size'] : 'regular';
     $html = '<input type="text" class="' . $size . '-text" id="dgwt_automatic_nbsp[' . $args['id'] . ']" name="dgwt_automatic_nbsp[' . $args['id'] . ']" value="' . esc_attr(stripslashes($value)) . '"/>';
     $html .= '<label for="dgwt_automatic_nbsp[' . $args['id'] . ']"> ' . $args['desc'] . '</label>';
+
+    echo $html;
+}
+
+/**
+ * Info callback
+ */
+function dgwt_nbsp_info_callback($args) {
+
+    $html = '<label>' . $args['desc'] . '</label>';
 
     echo $html;
 }

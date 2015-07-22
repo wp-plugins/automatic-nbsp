@@ -2,10 +2,10 @@
 
 /*
   Plugin Name: Automatic NBSP
-  Description: Adds a non-breaking space for selected words or phrases.
-  Version: 1.2
+  Description: Automatically adds a non-breaking space (&nbsp) in the content.
+  Version: 1.3
   Author: Damian Góra
-  Author URI: http://webtroter.pl
+  Author URI: http://damiangora.com
   License: GPLv2 or later
  */
 
@@ -49,7 +49,7 @@ class Webtroter_Automatic_NBSP {
     private function constants() {
 
         // Wersja wtyczki
-        define('DGWT_NBSP_VERSION', '1.2');
+        define('DGWT_NBSP_VERSION', '1.3');
 
 
         // Nazwa wtyczki

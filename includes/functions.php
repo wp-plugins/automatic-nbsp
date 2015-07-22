@@ -115,38 +115,52 @@ function dgwt_nbsp_all_phrases_variants($phrases) {
  */
 
 function dgwt_nbsp_format_matches($matches) {
+    global $dgwt_nbsp_settings;
+    $o = $dgwt_nbsp_settings;
+    
     
     /*
      * Possible beginnings of phrases.
      * Sometimes phrases can start with other characters than whitespace e.g. 
      */
     $beginnings = dgwt_nbsp_get_phrases_beginnings();
-    
+
     // Temporary strip whitespace from the beginning and end of a string
     $phrase_clear = trim($matches[0]);
 
     $phrase_nbsp = preg_replace('/\\s/', "&nbsp;", $phrase_clear);
-    
+
     // Get first character.
     $first_char = mb_substr($phrase_nbsp, 0, 1, get_bloginfo('charset'));
-    
+
     $whitespace_first = true;
-    foreach ($beginnings as $beginning){
-        
-        if($first_char === $beginning){
+    foreach ($beginnings as $beginning) {
+
+        if ($first_char === $beginning) {
             $phrase = $phrase_nbsp . '&nbsp;';
             $whitespace_first = false;
         }
-        
-    }
-    
-    // Restore whitespace
-    if($whitespace_first){
-    $phrase = ' ' . $phrase_nbsp . '&nbsp;';
     }
 
+    // Restore whitespace
+    if ($whitespace_first) {
+        $phrase = ' ' . $phrase_nbsp . '&nbsp;';
+    }
+    
+    
+    if(isset($o['before_punctuation']) && $o['before_punctuation'] == '1'){
+        $marks = dgwt_nbsp_get_punctuation_marks();
+        
+       if(in_array($phrase_clear, $marks)){
+           
+           $phrase = '&nbsp;' . $phrase_clear;
+       }
+       
+    }
+    
     return $phrase;
 }
+
 
 /*
  * Possible beginnings of phrases
@@ -154,23 +168,22 @@ function dgwt_nbsp_format_matches($matches) {
  * @return array of allowed characters
  */
 
-function dgwt_nbsp_get_phrases_beginnings(){
-    
+function dgwt_nbsp_get_phrases_beginnings() {
+
     $beginnings = array(
         '\\s', // whitespace
         '>'
     );
-    
+
     return $beginnings;
 }
-
 
 /*
  * Get list of words/phrases by language
  * @return array of words/phrases
  */
 
-function dgwt_nbsp_get_phrases_by_lang(){
+function dgwt_nbsp_get_phrases_by_lang() {
 
     $phrases = array();
 
@@ -184,9 +197,13 @@ function dgwt_nbsp_get_phrases_by_lang(){
             'so',
             'or',
             'if',
+            'at',
+            'in',
+            'on',
             'and',
             'but',
             'nor',
+            'e.g.',
             'for',
             'yet',
             'now',
@@ -236,7 +253,7 @@ function dgwt_nbsp_get_phrases_by_lang(){
             'rather than',
             'even though',
             'in order that',
-            'provided that',     
+            'provided that',
     ));
 
     // Polish
@@ -251,6 +268,8 @@ function dgwt_nbsp_get_phrases_by_lang(){
             'o',
             'u',
             'na',
+            'np.',
+            'nt.',
             'że',
             'do',
             'za',
@@ -268,6 +287,7 @@ function dgwt_nbsp_get_phrases_by_lang(){
             'ani',
             'nad',
             'zaś',
+            'prof.',
             'znad',
             'przy',
             'spod',
@@ -295,9 +315,38 @@ function dgwt_nbsp_get_phrases_by_lang(){
             'ponieważ',
             'natomiast',
             'mianowicie',
-            'aczkolwiek',  
+            'aczkolwiek',
     ));
 
 
     return $phrases;
+}
+
+if (!function_exists('auto_nbsp')) {
+    /*
+     * Adds nbsp to the custom text
+     * @param string $content
+     * @param bool $echo - return or echo
+     */
+
+    function auto_nbsp($content, $echo = true) {
+        if ($echo) {
+            echo webtroter_automatic_nbsp($content);
+        } else {
+            return webtroter_automatic_nbsp($content);
+        }
+    }
+
+}
+
+
+/*
+ * All punctuation marks
+ */
+
+function dgwt_nbsp_get_punctuation_marks(){
+    
+    $marks = array('!','?',':',';','%','«','»');
+    
+    return $marks;
 }
