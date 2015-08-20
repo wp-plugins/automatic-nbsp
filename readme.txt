@@ -12,13 +12,13 @@ Automatically adds a non-breaking space (&nbsp) in the content.
 
 == Description ==
 
-**Support typographic rules in Polish and Czech**
-Moves conjunctions, prepositions, etc. to the new line. ( sierotki )
+= Support typographic rules in Polish and Czech =
+Moves conjunctions, prepositions, etc. to the new line. **( sierotki )**
 
-**Support punctuation marks in French**
-Adds a non-breaking space `&nbsp;` before punctuation marks as `!` `?` `;` `%` `«` `»`
+= Support punctuation marks in French =
+Adds a non-breaking space `&nbsp;` before punctuation marks as **`!`  `?`  `;`  `%`  `«`  `»`**
 
-**How it works?**
+= How it works? =
 The plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) after selected words or phrases. E.g. 'Mr. Someone' should be 'Mr.`&nbsp;`Someone'. Works with:
 
 *   posts
@@ -32,8 +32,9 @@ The plugin automatically adds HTML entity `&nbsp;` ( non-breaking space ) after 
 You can create your own list of words/phrases or import our proposals.
 
 
-**Custom contents**
+= Custom contents =
 You can use the function `<?php auto_nbsp($content, $echo); ?>` to add `&nbsp;` to the custom content. Use this in your code.
+
 1. Param `$content` - (string) (required) Free text
 2. Param `$echo` - (bool) (optional) true (echo), false (return), Default: true 
 
